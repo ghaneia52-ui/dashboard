@@ -1,15 +1,22 @@
-import { AppBar, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, TextField, Toolbar, Typography } from "@mui/material";
 
 export default function DashboardContainerComponents() {
+  
   
   return (
     <Box >
       <CssBaseline />
-      <AppBar  sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <Typography variant="h6">
-            Clipped drawer
+      <AppBar  sx={{ zIndex: (theme) => theme.zIndex.drawer + 1  }}>
+        <Toolbar sx={{display:'flex', flexDirection:"row", gap:'30px'}}>
+          <Typography variant="h5">💼
+            داشبورد
           </Typography>
+          <Box sx={{ width: 800, maxWidth: '100%' , ml:'55vh' }}>
+      <TextField  fullWidth label="جستجو" id="fullWidth" />
+    </Box>
+    <Box>
+      <Typography variant="h4" sx={{ml:"30vh"}} >مدیریت کاربران</Typography>
+    </Box>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -23,7 +30,7 @@ export default function DashboardContainerComponents() {
         <Toolbar />
         <Box sx={{width:'45vh',}}>
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
+            {['کاربران', 'تسک ها'].map((text) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
@@ -35,18 +42,6 @@ export default function DashboardContainerComponents() {
             ))}
           </List>
           <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
         </Box>
       </Drawer>
       <Box >
